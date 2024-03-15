@@ -1,0 +1,15 @@
+version: '3'
+
+
+
+services:
+  marketing_code:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: marketing_code
+    container_name: marketing_code
+    ports:
+      - "8000:8000"
+    command: start
+

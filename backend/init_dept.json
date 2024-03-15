@@ -1,0 +1,24 @@
+[
+    {
+        "name": "运营部",
+        "sort": 1,
+        "owner": "",
+        "phone": "",
+        "email": "",
+        "status": true,
+        "parent": null,
+        "children": [],
+        "key": "operation"
+    },
+    {
+        "name": "技术部",
+        "sort": 1,
+        "owner": "",
+        "phone": "",
+        "email": "",
+        "status": true,
+        "parent": null,
+        "children": [],
+        "key": "technology"
+    }
+]

@@ -1,0 +1,60 @@
+import { request, downloadFile } from '@/api/service'
+export const urlPrefix = '/api/system/approval_transfer/'
+
+export function GetList (query) {
+  return request({
+    url: urlPrefix,
+    method: 'get',
+    params: { ...query }
+  })
+}
+
+export function UpdateObj (obj) {
+  return request({
+    url: urlPrefix,
+    method: 'put',
+    data: obj
+  })
+}
+
+export function DelObj (id) {
+  return request({
+    url: urlPrefix,
+    data: id,
+    method: 'delete'
+  })
+}
+
+export function BatchDel (keys) {
+  return request({
+    url: urlPrefix + 'multiple_delete/',
+    method: 'delete',
+    data: { keys }
+  })
+}
+
+/**
+ * 重置密码
+ * @param obj
+ * @returns {*}
+ * @constructor
+ */
+export function ResetPwd (obj) {
+  return request({
+    url: urlPrefix + obj.id + '/reset_password/',
+    method: 'put',
+    data: obj
+  })
+}
+
+/**
+ * 导出
+ * @param params
+ */
+export function exportData (params) {
+  return downloadFile({
+    url: urlPrefix + 'export/',
+    params: params,
+    method: 'post'
+  })
+}

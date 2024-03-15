@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>点击获取慧远AI卡密</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+      text-align: center;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #getCodeButton, #copyButton {
+      font-size: 20px;
+      padding: 10px 20px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #getCodeButton:hover, #copyButton:hover {
+      background-color: #0056b3;
+    }
+    #activationCode {
+      font-size: 18px;
+      color: #007BFF;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      display: inline-block;
+      word-wrap: break-word;
+    }
+    #textareaCopy {
+      position: absolute;
+      left: -9999px;
+    }
+    #message {
+      font-size: 16px;
+      color: #ff0000;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <p>慧远AI卡密</p>
+  <div id="activationCode" contenteditable="false"></div>
+  <div class="button-container">
+    <button id="getCodeButton">获取</button>
+    <button id="copyButton">复制卡密</button>
+  </div>
+  <div id="message"></div>
+  <textarea id="textareaCopy"></textarea>
+
+  <script>
+    document.getElementById("getCodeButton").addEventListener("click", function() {
+      const to_prod_id = 12
+      fetch('https://chat.zfang8.com/code1/api/system/get_code/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to_prod_id: to_prod_id
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.code === 2000) {
+            document.getElementById("activationCode").innerText = data.data.activate_code;
+          } else {
+            document.getElementById("activationCode").innerText = "Sorry, there was an error getting your activation code.";
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById("activationCode").innerText = "Sorry, there was an error getting your activation code.";
+        });
+    });
+
+    document.getElementById("copyButton").addEventListener("click", function() {
+      var text = document.getElementById("activationCode").innerText;
+
+      var textareaCopy = document.getElementById("textareaCopy");
+      textareaCopy.value = text;
+
+      textareaCopy.select();
+      textareaCopy.setSelectionRange(0, 99999); // For mobile devices
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? '已复制' : '复制出错';
+        document.getElementById("message").innerText = msg;
+      } catch (err) {
+        document.getElementById("message").innerText = '复制出错: ' + err;
+      }
+    });
+  </script>
+</body>
+</html>
+
+

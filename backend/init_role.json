@@ -1,0 +1,74 @@
+[
+    {
+        "name": "管理员",
+        "key": "admin",
+        "sort": 1,
+        "status": true,
+        "admin": true,
+        "data_range": 3,
+        "remark": null
+    },
+    {
+        "name": "运营管理员",
+        "key": "op_admin",
+        "sort": 2,
+        "status": true,
+        "admin": true,
+        "data_range": 0,
+        "remark": null
+    },
+    {
+        "name": "研发管理员",
+        "key": "re_admin",
+        "sort": 3,
+        "status": true,
+        "admin": false,
+        "data_range": 0,
+        "remark": null
+    },
+    {
+        "name": "运营",
+        "key": "operation",
+        "sort": 4,
+        "status": true,
+        "admin": false,
+        "data_range": 0,
+        "remark": null
+    },
+    {
+        "name": "研发",
+        "key": "research",
+        "sort": 5,
+        "status": true,
+        "admin": false,
+        "data_range": 0,
+        "remark": null
+    },
+    {
+        "name": "财务",
+        "key": "finance",
+        "sort": 6,
+        "status": true,
+        "admin": false,
+        "data_range": 0,
+        "remark": null
+    },
+    {
+        "name": "营销",
+        "key": "marketing",
+        "sort": 7,
+        "status": true,
+        "admin": false,
+        "data_range": 0,
+        "remark": null
+    },
+    {
+        "name": "刘华峰",
+        "key": "lhf",
+        "sort": 8,
+        "status": true,
+        "admin": false,
+        "data_range": 0,
+        "remark": null
+    }
+]
